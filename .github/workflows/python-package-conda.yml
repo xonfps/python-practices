@@ -1,0 +1,19 @@
+name: Python Tests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: registry.lunes.io/blockchain/production/lunespy
+
+    steps:
+    - name: Get latest code
+    - uses: actions/checkout@v2
+
+    - name: Test with pytest
+      run: pytest --workers auto --tests-per-worker auto --junitxml=report.xml
+
+    - name: Artefacts of tests
+      uses: actions/upload-artifact@v2
+      with:
+        name: report.xml
