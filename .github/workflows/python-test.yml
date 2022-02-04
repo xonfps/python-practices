@@ -11,9 +11,4 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Test with pytest
-      run: pytest --workers auto --tests-per-worker auto --junitxml=report.xml
-
-    - name: Artefacts of tests
-      uses: actions/upload-artifact@v2
-      with:
-        name: report.xml
+      run: pytest --workers auto --tests-per-worker auto
