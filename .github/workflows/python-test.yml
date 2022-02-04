@@ -4,10 +4,9 @@ on: [push]
 
 jobs:
   build:
-    runs-on: registry.lunes.io/blockchain/production/lunespy
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Get latest code
     - uses: actions/checkout@v2
 
     - name: Test with pytest
