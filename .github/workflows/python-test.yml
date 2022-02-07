@@ -4,10 +4,13 @@ on: [push]
 
 jobs:
   build:
-    runs-on: python
+    runs-on: python:3.10
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Test with pytest
-      run: pytest --workers auto --tests-per-worker auto
+      - name: Install dependencies
+        run: pip3 install poetry && poetry install
+
+      - name: Test with pytest
+        run: pytest --workers auto --tests-per-worker auto
